@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+@theme {
+  /* 1. Colors - Defined as native CSS variables */
+  --color-luxury-gold: #D4AF37;
+  --color-luxury-gold-light: #F0E68C;
+  --color-luxury-gold-dark: #B8932F;
+  --color-luxury-charcoal: #1A1A1A;
+  --color-luxury-stone: #F5F5F0;
+  --color-luxury-stone-dark: #E8E8E0;
+
+  /* 2. Typography */
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Montserrat", system-ui, sans-serif;
+  --font-display: "Cormorant Garamond", Georgia, serif;
+
+  /* 3. Animations & Keyframes */
+  --animate-fade-in: fadeIn 0.6s ease-in-out;
+  --animate-slide-up: slideUp 0.6s ease-out;
+  --animate-shimmer: shimmer 2s linear infinite;
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  @keyframes shimmer {
+    from { background-position: -200% 0; }
+    to { background-position: 200% 0; }
+  }
+
+  /* 4. Spacing Customization */
+  --spacing-18: 4.5rem;
+  --spacing-88: 22rem;
+  --spacing-128: 32rem;
+}
+
+@layer base {
+  * {
+    @apply antialiased;
+  }
+  
+  body {
+    @apply bg-luxury-stone text-luxury-charcoal font-sans;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-luxury-charcoal text-white px-8 py-3 font-sans uppercase tracking-wider text-sm 
+           hover:bg-luxury-gold hover:text-luxury-charcoal transition-all duration-300 
+           transform hover:scale-105 active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply border-2 border-luxury-charcoal text-luxury-charcoal px-8 py-3 font-sans 
+           uppercase tracking-wider text-sm hover:bg-luxury-charcoal hover:text-white 
+           transition-all duration-300;
+  }
+
+  .input-luxury {
+    @apply w-full px-4 py-3 border-b-2 border-gray-300 bg-transparent 
+           focus:border-luxury-gold focus:outline-none transition-colors duration-300
+           font-sans text-base placeholder:text-gray-400;
+  }
+
+  .luxury-card {
+    @apply bg-white shadow-lg p-8 border border-gray-100;
+  }
+
+  .section-title {
+    @apply font-display text-5xl md:text-6xl lg:text-7xl font-light tracking-tight;
+  }
+
+  .gold-accent {
+    @apply text-luxury-gold;
+  }
+
+  .shimmer-effect {
+    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 2s linear infinite;
+  }
+}
+
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .transition-luxury {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5f5f0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d4af37;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #b8932f;
+}
