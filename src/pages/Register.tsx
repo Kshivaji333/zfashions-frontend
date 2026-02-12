@@ -24,13 +24,14 @@ function Register() {
         username: data.username,
         email: data.email,
         password: data.password,
-        role: 'USER',
+        role: 'CUSTOMER',
       }),
     )
     
     if (registerUser.fulfilled.match(actionResult)) {
       navigate('/')
     }
+    
   }
 
   return (

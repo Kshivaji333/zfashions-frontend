@@ -32,7 +32,6 @@ function RegisterForm({ isLoading, error, onSubmit }: RegisterFormProps) {
   } = useForm<RegisterFormInputs>()
 
   const handleFormSubmit: SubmitHandler<RegisterFormInputs> = async (data) => {
-    console.log('Form Data:', data)
     await onSubmit(data);
   }
 
